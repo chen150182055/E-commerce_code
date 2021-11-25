@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>transitionend事件</title>
+    <style>
+        /*为div设置宽高、背景色及过渡*/
+        #myDIV {
+            width: 100px;
+            height: 100px;
+            background: pink;
+            -webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
+            transition: width 2s;
+        }
+        #myDIV:hover {
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+<p>将鼠标移动到div元素上，查看过渡效果。</p>
+<div id="myDIV"></div>
+<script>
+    //  Safari 3.1 到 6.0 版本代码
+   var dom= document.getElementById("myDIV");
+    dom.addEventListener("webkitTransitionEnd", myFunction);
+    // 标准语法
+    dom.addEventListener("transitionend", myFunction);
+    //    事件回调函数
+    function myFunction() {
+        this.innerHTML='过渡效果结束';
+        this.style.background='green';
+    }
+</script>
+
+</body>
+</html>

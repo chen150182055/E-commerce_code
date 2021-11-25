@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>animationend事件</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #F7F7F7;
+        }
+        /*设置div的样式和动画*/
+        .box {
+            width: 300px;
+            height: 100px;
+            margin: 50px auto;
+            background: brown;
+            position: relative;
+            -webkit-animation: move 4s 1;
+            animation:move 4s 1;
+        }
+        /*绑定动画效果*/
+        @keyframes move {
+        0% {
+            left: -300px;
+        }
+
+        100% {
+            left: 0px;
+        }
+        }
+        @-webkit-keyframes move {
+            0% {
+                left: -300px;
+            }
+
+            100% {
+                left: 0px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="box"></div>
+</body>
+<script>
+    var dom = document.querySelector("div");
+    //  Chrome, Safari 和 Opera
+    dom.addEventListener("webkitAnimationEnd", myFunction);
+    dom.addEventListener("animationend", myFunction);
+    //    事件回调函数
+    function myFunction() {
+        this.innerHTML = "动画结束";
+        this.style.backgroundColor = "pink";
+    }
+</script>
+</html>

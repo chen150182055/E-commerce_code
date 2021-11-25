@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>localStorage</title>
+</head>
+<body>
+<input type="text" id="username" >
+<input type="button"  value="localStorage 设置数据" id="localStorageId">
+<input type="button"  value="localStorage 获取数据" id="getlocalStorageId">
+<input type="button"  value="localStorage 删除数据"
+       id="removesessionStorageId">
+<script>
+    document.getElementById("localStorageId").onclick=function(){
+        //把用户在input 里面数据的数据保存到localStorage
+        var username=document.getElementById("username").value;
+        window.localStorage.setItem("username",username);
+    };
+    document.getElementById("getlocalStorageId").onclick=function(){
+        //获取数据，从localStorage
+        var username=window.localStorage.getItem("username");
+        alert(username);
+    };
+    document.getElementById("removesessionStorageId").onclick=function(){
+        //删除localStorage中的数据
+        var username=document.getElementById("username").value;
+        window.localStorage.removeItem("username");
+    };
+</script>
+</body>
+</html>
